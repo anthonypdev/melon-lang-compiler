@@ -1,0 +1,89 @@
+{
+  "name": "melon-vscode",
+  "displayName": "Melon Language Support",
+  "description": "Official VS Code extension for the Melon prompt programming language",
+  "version": "1.0.0",
+  "publisher": "melon-lang",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:melon"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "melon",
+        "aliases": ["Melon", "melon"],
+        "extensions": [".mln"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "melon",
+        "scopeName": "source.melon",
+        "path": "./syntaxes/melon.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Melon",
+      "properties": {
+        "melon.compiler.path": {
+          "type": "string",
+          "default": "melonc",
+          "description": "Path to melonc compiler executable"
+        },
+        "melon.format.onSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Format document on save"
+        },
+        "melon.validation.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time validation"
+        },
+        "melon.compileOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically compile on save"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "melon.compile",
+        "title": "Melon: Compile Current File"
+      },
+      {
+        "command": "melon.validate",
+        "title": "Melon: Validate Current File"
+      },
+      {
+        "command": "melon.init",
+        "title": "Melon: Initialize New Project"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

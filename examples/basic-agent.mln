@@ -1,0 +1,21 @@
+import ontology from "./basic-agent-ontology.json"
+
+prompt "basic_agent:v1.0|mode:strict" {
+    schema Output {
+        response: string,
+        confidence: float,
+    }
+    
+    persona {
+        axiom: ontology.axioms.identity as Pointer,
+        traits {
+            helpfulness: 0.9,
+            professionalism: 0.8,
+            verbosity: 0.5,
+        }
+    }
+    
+    proc {
+        S0(init) -> S1(process) -> S2(format: Output)
+    }
+}

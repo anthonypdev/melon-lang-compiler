@@ -1,0 +1,32 @@
+{
+  "name": "@melon-lang/core",
+  "version": "1.0.0",
+  "description": "Core compiler library for the Melon prompt programming language",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./src/index.js",
+    "./lexer": "./src/lexer/index.js",
+    "./parser": "./src/parser/index.js",
+    "./analyzer": "./src/analyzer/index.js",
+    "./resolver": "./src/resolver/index.js",
+    "./codegen": "./src/codegen/index.js",
+    "./errors": "./src/errors/index.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
+  "keywords": [
+    "melon",
+    "compiler",
+    "parser",
+    "lexer"
+  ],
+  "author": "Melon Language Team",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

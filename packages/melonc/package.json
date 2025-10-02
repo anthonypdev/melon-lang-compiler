@@ -1,0 +1,34 @@
+{
+  "name": "melonc",
+  "version": "1.0.0",
+  "description": "CLI compiler for the Melon prompt programming language",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "melonc": "./bin/melonc.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "melon",
+    "compiler",
+    "cli",
+    "llm",
+    "prompt-engineering"
+  ],
+  "author": "Melon Language Team",
+  "license": "MIT",
+  "dependencies": {
+    "@melon-lang/core": "file:../core",
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

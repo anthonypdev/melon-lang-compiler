@@ -1,0 +1,36 @@
+{
+  "name": "melon-lang-compiler",
+  "version": "1.0.0",
+  "description": "The Melon prompt programming language compiler ecosystem",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "clean": "rm -rf packages/*/dist packages/*/node_modules node_modules",
+    "dev:core": "npm run dev -w @melon-lang/core",
+    "dev:cli": "npm run dev -w melonc",
+    "dev:lsp": "npm run dev -w melon-language-server",
+    "dev:playground": "npm run dev -w melon-playground"
+  },
+  "keywords": [
+    "melon",
+    "llm",
+    "prompt-engineering",
+    "compiler",
+    "language"
+  ],
+  "author": "Melon Language Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthonypdev/melon-lang-compiler.git"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "markdownlint-cli": "^0.45.0"
+  }
+}

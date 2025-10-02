@@ -1,0 +1,75 @@
+{
+  "name": "Melon",
+  "scopeName": "source.melon",
+  "fileTypes": ["mln"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#types" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.melon",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.melon",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.melon",
+          "match": "\\b(import|from|as|prompt|meta|schema|persona|axiom|traits|example|positive|negative|on|proc|tools|tool|checksum|confidence_token)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.melon",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.melon",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.melon",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.melon",
+          "match": "\\b(string|int|float|bool|json|array|enum|Pointer)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.melon",
+          "match": "->|\\||\\^|§|:|,|\\."
+        }
+      ]
+    }
+  }
+}
